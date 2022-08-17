@@ -4,6 +4,7 @@
     <title>Document</title>
 </head>
 <body>
+    <a href="{% url 'color' %}">Settings</a>
     {%if request.user.is_authenticated%}
         {{request.user}}
         <button><a href="{% url  'logout' %}">Logout</a></button>

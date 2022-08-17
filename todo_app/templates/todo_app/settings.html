@@ -1,0 +1,9 @@
+<p>What background color do you want?</p>
+<form method="GET">
+    {%csrf_token%}
+    <button name="color" value="white">White</button>
+    <button name="color" value="black">Black</button>
+</form>
+{{color}}
+{{cnt}}
+{{clr}}

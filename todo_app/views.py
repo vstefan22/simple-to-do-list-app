@@ -1,3 +1,4 @@
+
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.views.generic.list import ListView
@@ -70,5 +71,24 @@ class RegisterPage(FormView):
         if user is not None:
             login(self.request, user)
         return super(RegisterPage, self).form_valid(form)
+
+def black_white(request):
+    if request.method == "GET":
+        color = request.GET.get('color')
+        #cnt = request.session.get('cnt_views', 0)
+        #request.session['cnt_views'] = cnt+1
+        clr = request.session.get('clr', 'white')
+        if color == 'black':
+            request.session['clr'] = 'black'
+        if color == 'white':
+            request.session['clr'] = 'white'
+        context = {
+            'color':color,
+            #'cnt':cnt
+            'clr':clr
+        }
+        
+        return render (request, 'todo_app/settings.html', context)
+    
 
 
