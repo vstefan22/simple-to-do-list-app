@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <h1>Login here</h1>
+    <form method="post">
+        {%csrf_token%}
+        {{form.as_p}}
+        <input type="submit" value="Login">
+    </form>
+    <p>Don't have a account? <a href="{% url 'register'%}">Click here</a></p>
+</body>
+</html>
